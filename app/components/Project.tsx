@@ -30,9 +30,9 @@ const Project = ({project} : Props) => {
                     />
                     <ProjectArrows id={project.id}/>
                 </div>
-                <div className={"p-6 flex flex-col gap-6"}>
-                    <div className={"flex justify-between"}>
-                        <div className={"text-3xl text-white font-bold"}>
+                <div className={"p-3 flex flex-col gap-6 sm:p-6"}>
+                    <div className={"flex flex-col gap-4 sm:flex-row sm:justify-between"}>
+                        <div className={"text-3xl text-white font-bold truncate"}>
                             {project.title}
                         </div>
                         <div className={"flex gap-2"}>
@@ -40,9 +40,9 @@ const Project = ({project} : Props) => {
                                 project.demo_link && (
                                     <a
                                         href={project.demo_link}
-                                        className={"bg-slate-900 px-2 rounded flex justify-center items-center hover:bg-slate-800"}
+                                        className={"btn btn-sm"}
                                     >
-                                        <span className={"text-white text-sm"}>Demo</span>
+                                        <span className={"text-sm"}>Demo</span>
                                     </a>
                                 )
                             }
@@ -50,9 +50,9 @@ const Project = ({project} : Props) => {
                                 project.github_link && (
                                     <a
                                         href={project.github_link}
-                                        className={"bg-slate-900 px-2 rounded flex justify-center items-center hover:bg-slate-800"}
+                                        className={"btn btn-sm btn-neutral"}
                                     >
-                                        <span className={"text-white text-sm"}>Source Code</span>
+                                        <span className={"text-white text-sm"}>Repo</span>
                                     </a>
                                 )
                             }
