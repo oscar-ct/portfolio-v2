@@ -31,7 +31,6 @@ export default function AboutHeadshot() {
         <motion.div
             animate={controls}
             style={box}
-            className={""}
         >
             <Image
                 priority
