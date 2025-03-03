@@ -123,8 +123,8 @@ const ProjectModal = () => {
     };
 
     return (
-        <dialog id="my_modal" className="modal">
-            <div className="modal-box w-11/12 max-w-5xl bg-slate-700">
+        <dialog id="my_modal" className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box px-4 py-6 sm:p-6 sm:w-11/12 sm:!max-w-5xl bg-slate-700">
                 {
                     modalImages.length === 0 ? (
                         <span className={"text-white"}>No Images Found</span>
@@ -141,7 +141,13 @@ const ProjectModal = () => {
                                     <SwiperSlide
                                         key={index}
                                     >
-                                        <Image src={image} alt={"screenshot"} width={1280} height={720} />
+                                        <Image
+                                            className={"object-cover"}
+                                            src={image}
+                                            alt={"screenshot"}
+                                            width={1280}
+                                            height={720}
+                                        />
                                     </SwiperSlide> )
                             })}
                         </Swiper>
