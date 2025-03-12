@@ -29,7 +29,7 @@ const WhatIKnow = () => {
                 <h2 className={"text-center text-purple-300"}>
                     Programming Languages
                 </h2>
-                <div className="grid grid-cols-2 gap-4 text-sm font-bold text-slate-100 md:grid-cols-3 xl:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
                     {programmingLanguages.map((technology) => (
                         <Technology
                             key={technology}
@@ -43,7 +43,7 @@ const WhatIKnow = () => {
                 <h2 className={"text-center text-purple-300"}>
                     Libraries & Frameworks
                 </h2>
-                <div className="grid grid-cols-2  gap-4 text-sm font-bold text-slate-100 md:grid-cols-3 xl:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
                     {librariesAndFrameworks.map((technology) => (
                         <Technology
                             key={technology}
@@ -57,7 +57,7 @@ const WhatIKnow = () => {
                 <h2 className={"text-center text-purple-300"}>
                     Tools & Platforms
                 </h2>
-                <div className="grid grid-cols-2 gap-4 text-sm font-bold text-slate-100 md:grid-cols-3 xl:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
                     {toolsAndPlatforms.map((technology) => (
                         <Technology
                             key={technology}

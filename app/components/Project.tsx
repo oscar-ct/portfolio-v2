@@ -25,7 +25,7 @@ const Project = ({project} : Props) => {
                             <div className={"absolute max-w-72 md:w-full h-full top-0 rounded bg-purple-500 opacity-20 hover:opacity-0 hover:transition-all hover:duration-500 hover:transform"}/>
                         </div>
                         <div className={"mt-3 font-semibold cursor-pointer text-slate-200 hover:text-purple-500 hover:transition-all hover:duration-300"}>
-                            View Gallery
+                            Image Gallery
                         </div>
                     </ModalLink>
                 </div>

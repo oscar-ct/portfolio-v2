@@ -38,7 +38,7 @@ const Technology = ({ technology, isOpen, setOpenTitle, isDesktop }: TechnologyP
                 onClick={() => !isDesktop && setOpenTitle(isOpen ? null : technology)}
                 className={`${!isDesktop && isOpen ? "bg-slate-500" : " bg-slate-700"} w-full py-2.5 text-center relative rounded-lg overflow-hidden group sm:hover:bg-gradient-to-r sm:hover:from-slate-700 sm:hover:to-slate-500 sm:transition-all sm:ease-out sm:duration-300`}            >
                 <span className={"hidden absolute right-0 w-8 h-32 -mt-12 transition-all duration-500 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease sm:inline"}/>
-                <span className="text-white text-sm">{technology}</span>
+                <span className="text-white text-sm font-bold">{technology}</span>
             </motion.button>
 
             {/* Popup Card */}
@@ -57,13 +57,13 @@ const Technology = ({ technology, isOpen, setOpenTitle, isDesktop }: TechnologyP
                             <div className="text-sm text-slate-400">
                                 {technology} Featured Projects
                             </div>
-                            <div className="flex justify-center text-purple-300 md:justify-start">
+                            <div className="flex justify-center font-bold text-purple-300 md:justify-start">
                                <FaGithub size={25}/>
                             </div>
                             {selectedTechnology.projects && selectedTechnology.projects.length > 0 && (
                                 <>
                                     {selectedTechnology.projects.map((project, index) => (
-                                        <div className={"text-sm flex gap-2 items-center text-purple-300 underline"}
+                                        <div className={"text-sm font-bold flex gap-2 items-center text-purple-300 underline"}
                                              key={index}>
                                             <a
                                                 href={project.url}
