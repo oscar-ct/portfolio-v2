@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Oscar Castro",
-  description: "My Web Development Portfolio",
+  description: "Oscar Castro is a software developer who specializes in developing exceptional digital experiences with modern tools",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-800`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-900`}>
         {children}
         <Analytics />
       </body>

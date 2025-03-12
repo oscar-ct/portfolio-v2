@@ -6,7 +6,17 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        glow: 'glow 2s ease-in-out infinite alternate',
+      },
+      keyframes: {
+        glow: {
+          'from': { textShadow: 'none' },
+          'to': { textShadow: '0 0 15px rgba(255, 255, 255, 0.51)' },
+        },
+      },
+    },
   },
   plugins: [
       require('daisyui'),

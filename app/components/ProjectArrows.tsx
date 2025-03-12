@@ -21,13 +21,13 @@ const ProjectArrows = ({id} : Props) => {
                 onClick={openProjectModal}
                 fill={"blue"}
                 size={50}
-                className={"cursor-pointer absolute left-0 top-0 bottom-0 my-auto"}
+                className={"z-10 cursor-pointer absolute left-0 top-0 bottom-0 my-auto"}
             />
             <SlArrowRight
                 onClick={openProjectModal}
                 fill={"blue"}
                 size={50}
-                className={"cursor-pointer absolute right-0 top-0 bottom-0 my-auto"}
+                className={"z-10 cursor-pointer absolute right-0 top-0 bottom-0 my-auto"}
             />
         </>
     );

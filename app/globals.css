@@ -4,12 +4,25 @@
 
 body {
   /*font-family: Arial, Helvetica, sans-serif;*/
-  background-image: url('../public/images/angles-pattern.png');
-  background-attachment: fixed;
+  /*background-image: url('../public/images/angles-pattern.png');*/
+  /*background-attachment: fixed;*/
   /*background-repeat: no-repeat;*/
 }
 /*#what-i-know {*/
 /*}*/
 
 /*#about-me {*/
+/*}*/
+
+/*.animate-glow  {*/
+/*  animation: glow 2s ease-in-out infinite alternate;*/
+/*}*/
+
+/*@keyframes glow {*/
+/*  from {*/
+/*    text-shadow: none;*/
+/*  }*/
+/*  to {*/
+/*    text-shadow: 0 0 15px rgba(255, 255, 255, 0.51);*/
+/*  }*/
 /*}*/
