@@ -1,7 +1,7 @@
 
 const Footer = () => {
     return (
-        <div className={"text-sm font-bold pb-28 text-center text-slate-100 md:pb-8"}>
+        <div className={"text-sm font-bold text-center text-slate-100"}>
             Designed and developed by Oscar Castro
         </div>
     );

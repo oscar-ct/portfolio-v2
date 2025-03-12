@@ -22,7 +22,7 @@ export interface ProjectType {
 export const projects: ProjectType[] = [
     {
         id: "eshopjs",
-        title: 'eshopjs',
+        title: 'My Online Shop',
         github_link: "https://github.com/oscar-ct/next-eshop",
         demo_link: "https://eshopjs.com/",
         image: eshopjs,

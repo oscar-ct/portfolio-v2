@@ -36,7 +36,7 @@ const Technology = ({ technology, isOpen, setOpenTitle, isDesktop }: TechnologyP
             <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => !isDesktop && setOpenTitle(isOpen ? null : technology)}
-                className={`${!isDesktop && isOpen ? "bg-slate-500" : " bg-slate-700"} w-full py-5 text-center relative rounded-xl overflow-hidden group sm:hover:bg-gradient-to-r sm:hover:from-slate-700 sm:hover:to-slate-500 sm:transition-all sm:ease-out sm:duration-300`}            >
+                className={`${!isDesktop && isOpen ? "bg-slate-500" : " bg-slate-700"} w-full py-2.5 text-center relative rounded-lg overflow-hidden group sm:hover:bg-gradient-to-r sm:hover:from-slate-700 sm:hover:to-slate-500 sm:transition-all sm:ease-out sm:duration-300`}            >
                 <span className={"hidden absolute right-0 w-8 h-32 -mt-12 transition-all duration-500 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease sm:inline"}/>
                 <span className="text-white text-sm">{technology}</span>
             </motion.button>
@@ -54,17 +54,16 @@ const Technology = ({ technology, isOpen, setOpenTitle, isDesktop }: TechnologyP
                         transition={{ duration: 0.2 }}
                     >
                         <div className={"flex flex-col gap-3"}>
-                            {/*<h3 className="text-lg font-semibold">{`${technology} Project's`}</h3>*/}
                             <div className="text-sm text-slate-400">
                                 {technology} Featured Projects
                             </div>
-                            <div className="flex justify-center text-accent md:justify-start">
+                            <div className="flex justify-center text-purple-300 md:justify-start">
                                <FaGithub size={25}/>
                             </div>
                             {selectedTechnology.projects && selectedTechnology.projects.length > 0 && (
                                 <>
                                     {selectedTechnology.projects.map((project, index) => (
-                                        <div className={"text-sm flex gap-2 items-center sm:text-base link link-accent"}
+                                        <div className={"text-sm flex gap-2 items-center text-purple-300 underline"}
                                              key={index}>
                                             <a
                                                 href={project.url}

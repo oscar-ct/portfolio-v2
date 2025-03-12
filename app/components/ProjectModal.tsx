@@ -1,7 +1,6 @@
 "use client"
 
 import {useGlobalContext} from "@/context/GlobalContext";
-import SwiperCore from 'swiper';
 import {Swiper, SwiperSlide} from "swiper/react";
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -88,77 +87,78 @@ const ProjectModal = () => {
     const susyQImages = [susyq1, susyq2, susyq3, susyq4, susyq5, susyq6];
     const rotatingLinerImages = [rotatingliner1, rotatingliner2, rotatingliner3];
 
-    const [modalImages, setModalImages] = useState<StaticImageData[]> ([]);
+    const [modalImages, setModalImages] = useState<StaticImageData[] | null> ([]);
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+    const modalRef = useRef<HTMLDialogElement | null>(null);
 
     useEffect(() => {
-        if (focusedProjectId === "gamelister") {
-            setModalImages(gamerListerImages);
-        } else if (focusedProjectId === "gamerhaven") {
-            setModalImages(gamerHavenImages);
-        } else if (focusedProjectId === "pokemon") {
-            setModalImages(pokemonImages);
-        } else if (focusedProjectId === "simplyweather") {
-            setModalImages(simplyWeatherImages);
-        } else if (focusedProjectId === "dreamcars") {
-            setModalImages(dreamCarsImages);
-        } else if (focusedProjectId === "reactfilms") {
-            setModalImages(reactFilmsImages);
-        } else if (focusedProjectId === "susyqcleaning") {
-            setModalImages(susyQImages);
-        } else if (focusedProjectId === "rotatingliner") {
-            setModalImages(rotatingLinerImages);
-        } else {
-            setModalImages([]);
+        if (!modalIsOpen) {
+            setModalImages(null);
+            return;
         }
-    }, [focusedProjectId]);
+        const imageMap = {
+            gamelister: gamerListerImages,
+            gamerhaven: gamerHavenImages,
+            pokemon: pokemonImages,
+            simplyweather: simplyWeatherImages,
+            dreamcars: dreamCarsImages,
+            reactfilms: reactFilmsImages,
+            susyqcleaning: susyQImages,
+            rotatingliner: rotatingLinerImages
+        };
+        setModalImages(focusedProjectId && focusedProjectId in imageMap ? imageMap[focusedProjectId as keyof typeof imageMap] : []);
 
-    const swiperRef = useRef<SwiperCore | null>(null);
+    }, [focusedProjectId, modalIsOpen]);
 
-    const handleReset = () => {
-        setTimeout(() => {
-            if (swiperRef.current) {
-                swiperRef.current.slideTo(0);
-            }
-        }, 1000);
-    };
+    useEffect(() => {
+        modalRef.current = document.getElementById('my_modal') as HTMLDialogElement | null;
+        if (modalRef.current) {
+            const handleDialogChange = () => {
+                setModalIsOpen(modalRef.current!.open);
+            };
+            modalRef.current.addEventListener('toggle', handleDialogChange);
+            return () => {
+                modalRef.current?.removeEventListener('toggle', handleDialogChange);
+            };
+        }
+    }, []);
+
 
     return (
-        <dialog id="my_modal" className="modal modal-bottom sm:modal-middle">
-            <div className="modal-box px-4 py-6 sm:p-6 sm:w-11/12 sm:!max-w-5xl bg-slate-700">
+        <dialog id="my_modal" className="modal modal-middle backdrop-blur">
+            <div className="modal-box sm:w-11/12 sm:!max-w-5xl bg-transparent p-0">
                 {
-                    modalImages.length === 0 ? (
-                        <span className={"text-white"}>No Images Found</span>
+                    modalImages === null ? (
+                        ""
+                    ) : modalImages.length === 0 ? (
+                        <span className={"text-white text-2xl lg:text-4xl"}>No Images Found</span>
                     ) : (
                         <Swiper
                             slidesPerView={1}
                             pagination={{clickable: true}}
                             navigation
                             modules={[Navigation, Pagination]}
-                            onSwiper={(swiper) => (swiperRef.current = swiper)}
                         >
-                            {modalImages.map(function(image, index) {
-                                return  (
+                            {modalImages.map(function (image, index) {
+                                return (
                                     <SwiperSlide
                                         key={index}
                                     >
                                         <Image
-                                            className={"object-cover"}
                                             src={image}
                                             alt={"screenshot"}
                                             width={1280}
                                             height={720}
                                         />
-                                    </SwiperSlide> )
+                                    </SwiperSlide>)
                             })}
                         </Swiper>
                     )
                 }
-                <div className="modal-action">
-                    <form method="dialog">
-                        <button className="btn" onClick={handleReset}>Close</button>
-                    </form>
-                </div>
             </div>
+            <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+            </form>
         </dialog>
     );
 };

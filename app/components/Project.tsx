@@ -1,6 +1,8 @@
 import Image from "next/image";
-import ProjectArrows from "@/app/components/ProjectArrows";
 import { ProjectType } from "@/app/assets/projectsList";
+import {FaGithub} from "react-icons/fa";
+import {MdArrowOutward} from "react-icons/md";
+import ModalLink from "@/app/components/ModalLink";
 
 interface Props {
     project: ProjectType;
@@ -9,54 +11,67 @@ interface Props {
 const Project = ({project} : Props) => {
     return (
         <div className={"w-full flex flex-col"}>
-            <div className={"flex flex-col md:flex-row"}>
-                <div className={"w-full md:w-7/12"}>
-                    <div className={"relative"}>
-                        <Image
-                            src={project.image}
-                            alt={"placeholder"}
-                            width={750}
-                            height={500}
-                            className={"rounded-xl object-fill"}
-                        />
-                        <ProjectArrows id={project.id}/>
-                        <div className={"absolute w-full h-full top-0 rounded-xl bg-accent opacity-20 hover:opacity-0 hover:transition-all hover:duration-500 hover:transform"}/>
-                    </div>
+            <div className={"flex flex-col-reverse md:flex-row md:gap-4"}>
+                <div className={"md:w-4/12"}>
+                    <ModalLink id={project.id}>
+                        <div className={"relative cursor-pointer"}>
+                            <Image
+                                src={project.image}
+                                alt={"placeholder"}
+                                width={750}
+                                height={500}
+                                className={"rounded max-w-72 md:w-full object-fill"}
+                            />
+                            <div className={"absolute max-w-72 md:w-full h-full top-0 rounded bg-purple-500 opacity-20 hover:opacity-0 hover:transition-all hover:duration-500 hover:transform"}/>
+                        </div>
+                        <div className={"mt-3 font-semibold cursor-pointer text-slate-200 hover:text-purple-500 hover:transition-all hover:duration-300"}>
+                            View Gallery
+                        </div>
+                    </ModalLink>
                 </div>
-                <div className={"w-full md:w-5/12"}>
-                    <div className={"py-6 flex flex-col gap-6 md:p-0 md:items-end"}>
-                        <div className={"flex flex-col gap-4 md:items-end md:pt-10"}>
-                            <div className={"text-2xl text-white font-bold truncate md:text-3xl"}>
-                                {project.title}
-                            </div>
-                            <div className={"flex gap-2"}>
+                <div className={"md:w-8/12"}>
+                    <div className={"py-6 flex flex-col gap-6 md:p-0"}>
+                        <div className={"flex flex-col gap-4"}>
+                            <div className={"flex justify-between"}>
                                 {
-                                    project.demo_link && (
+                                    project.demo_link ? (
                                         <a
                                             href={project.demo_link}
-                                            className={"btn btn-sm"}
+                                            className={"flex gap-2 text-white hover:text-purple-500 hover:transition-all hover:duration-300"}
                                         >
-                                            <span className={"text-sm"}>Demo</span>
+                                            <div className={"text-xl font-semibold"}>
+                                                {project.title}
+                                            </div>
+                                            <MdArrowOutward size={20}/>
                                         </a>
+                                    ) : (
+                                        <div className={"text-xl text-white font-semibold"}>
+                                            {project.title}
+                                        </div>
                                     )
                                 }
                                 {
                                     project.github_link && (
                                         <a
                                             href={project.github_link}
-                                            className={"btn btn-sm btn-neutral"}
+                                            className={"text-white hover:text-purple-500 hover:transition-all hover:duration-300"}
                                         >
-                                            <span className={"text-white text-sm"}>Repo</span>
+                                            <FaGithub
+                                                size={20}
+                                            />
                                         </a>
                                     )
                                 }
                             </div>
+                            <p className={"text-sm text-slate-300 leading-6"}>
+                                {project.description}
+                            </p>
                         </div>
-                        <div className={"flex flex-wrap gap-4 md:justify-end"}>
+                        <div className={"flex flex-wrap gap-4"}>
                             {
                                 project.stack.map((item: String, index: number) => {
                                     return (
-                                        <h5 key={index} className={"text-accent text-sm font-bold"}>
+                                        <h5 key={index} className={"p-2 rounded-full bg-purple-500/30 text-purple-300 text-xs font-semibold"}>
                                             {item}
                                         </h5>
                                     )
@@ -66,13 +81,11 @@ const Project = ({project} : Props) => {
                     </div>
                 </div>
             </div>
-            <div className={"flex justify-center"}>
-                <div className={"rounded-xl bg-slate-800 transition-all duration-500 transform md:hover:-translate-y-0 md:max-w-screen-md md:-translate-y-4 md:translate-x-4 lg:hover:-translate-y-8 lg:-translate-y-12 lg:translate-x-12"}>
-                    <div className={"p-4 text-slate-200 leading-7 md:p-6"}>
-                        {project.description}
-                    </div>
-                </div>
-            </div>
+            {/*<div className={"rounded-xl bg-slate-800 transition-all duration-500 transform md:-translate-y-4 md:-translate-x-4 md:hover:-translate-y-0 lg:-translate-y-12 lg:-translate-x-12 lg:hover:-translate-y-8"}>*/}
+            {/*    <p className={"text-sm p-4 text-slate-200 leading-7 md:p-6"}>*/}
+            {/*        {project.description}*/}
+            {/*    </p>*/}
+            {/*</div>*/}
         </div>
     );
 };
