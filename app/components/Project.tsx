@@ -24,9 +24,9 @@ const Project = ({project} : Props) => {
                     </div>
                 </div>
                 <div className={"w-full md:w-5/12"}>
-                    <div className={"p-3 flex flex-col items-end gap-6 md:p-0"}>
-                    <div className={"flex flex-col gap-4 items-end md:pt-10"}>
-                            <div className={"text-3xl text-white font-bold truncate"}>
+                    <div className={"py-6 flex flex-col gap-6 md:p-0 md:items-end"}>
+                        <div className={"flex flex-col gap-4 md:items-end md:pt-10"}>
+                            <div className={"text-2xl text-white font-bold truncate md:text-3xl"}>
                                 {project.title}
                             </div>
                             <div className={"flex gap-2"}>
@@ -52,7 +52,7 @@ const Project = ({project} : Props) => {
                                 }
                             </div>
                         </div>
-                        <div className={"flex justify-end flex-wrap gap-4"}>
+                        <div className={"flex flex-wrap gap-4 md:justify-end"}>
                             {
                                 project.stack.map((item: String, index: number) => {
                                     return (

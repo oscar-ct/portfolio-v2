@@ -5,9 +5,9 @@ const About = () => {
     return (
         // <div className={"px-4 pt-10 pb-20 flex flex-col max-w-screen-2xl gap-2 lg:gap-6 lg:p-20 2xl:px-4"}>
 
-            <section className={"pb-20 px-8 max-w-screen-xl mx-auto gap-10 flex flex-col lg:flex-row lg:items-center"}>
+            <section className={"pt-20 pb-20 px-6 max-w-screen-xl mx-auto gap-10 flex flex-col md:pt-0 md:px-10 lg:flex-row lg:items-center"}>
                 <div className={"flex flex-col gap-10 lg:w-8/12"}>
-                    <h1 className={"text-center text-4xl font-bold text-accent lg:text-start"}>
+                    <h1 className={"text-center text-3xl font-bold text-accent md:text-4xl lg:text-start"}>
                         A little about me
                     </h1>
                     <p className={"leading-7 text-slate-300 text-lg"}>
@@ -42,13 +42,13 @@ const About = () => {
                     <div className={"relative"}>
                         <Image
                             priority
-                            className={"w-72 h-72 rounded-full"}
+                            className={"w-52 h-52 mask mask-squircle md:w-72 md:h-72"}
                             width={300}
                             height={300}
                             src={headshot}
                             alt={"headshot"}
                         />
-                        <div className={"absolute top-0 rounded-full w-72 h-72 bg-accent opacity-20 hover:opacity-0 hover:transition-all hover:duration-500 hover:transform"}/>
+                        <div className={"absolute top-0 mask mask-squircle w-52 h-52 bg-accent opacity-20 hover:opacity-0 hover:transition-all hover:duration-500 hover:transform md:w-72 md:h-72"}/>
                     </div>
 
                     <p className={"leading-7 text-slate-300 text-lg lg:hidden"}>

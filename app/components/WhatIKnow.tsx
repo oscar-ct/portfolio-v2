@@ -21,12 +21,12 @@ const WhatIKnow = () => {
     const toolsAndPlatforms  = ["Prisma", "PostgreSQL", "MySQL", "Mongoose", "MongoDB", "Firebase", "Redux Toolkit",];
 
     return (
-        <section id={"what-i-know"} className={"px-8 py-20 flex flex-col max-w-screen-xl mx-auto lg:gap-6"}>
+        <section id={"what-i-know"} className={"px-6 pb-20 flex flex-col max-w-screen-xl mx-auto md:pt-20 md:px-10 lg:gap-6"}>
             <div className={"flex flex-col gap-10"}>
-                <h1 className={"text-center text-4xl font-bold text-accent"}>
+                <h1 className={"text-center text-3xl font-bold text-accent md:text-4xl"}>
                     Some technologies I work with
                 </h1>
-                <h2 className={"text-white text-2xl font-bold"}>
+                <h2 className={"text-center text-slate-400 text-xl font-bold"}>
                     Programming Languages
                 </h2>
                 <div className="grid grid-cols-2 gap-4 text-sm font-bold text-slate-100 md:grid-cols-3 lg:grid-cols-4">
@@ -40,7 +40,7 @@ const WhatIKnow = () => {
                         />
                     ))}
                 </div>
-                <h2 className={"text-white text-2xl font-bold"}>
+                <h2 className={"text-center text-slate-400 text-xl font-bold"}>
                     Libraries & Frameworks
                 </h2>
                 <div className="grid grid-cols-2  gap-4 text-sm font-bold text-slate-100 md:grid-cols-3 lg:grid-cols-4">
@@ -54,7 +54,7 @@ const WhatIKnow = () => {
                         />
                     ))}
                 </div>
-                <h2 className={"text-white text-2xl font-bold"}>
+                <h2 className={"text-center text-slate-400 text-xl font-bold"}>
                     Tools & Platforms
                 </h2>
                 <div className="grid grid-cols-2 gap-4 text-sm font-bold text-slate-100 md:grid-cols-3 lg:grid-cols-4">

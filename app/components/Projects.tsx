@@ -10,10 +10,10 @@ const Projects = () => {
         <GlobalProvider>
             <section
                 id={"projects"}
-                className={"px-8 py-20 flex flex-col max-w-screen-xl mx-auto gap-2 lg:gap-6"}
+                className={"px-6 pb-20 flex flex-col max-w-screen-xl mx-auto gap-2 md:pt-20 md:px-10 lg:gap-6"}
             >
                 <div className={"flex flex-col gap-10"}>
-                    <h1 className={"text-center text-4xl font-bold text-accent"}>
+                    <h1 className={"text-center text-3xl font-bold text-accent md:text-4xl"}>
                         Some of my work
                     </h1>
                     <h2 className={"leading-7 text-slate-300 text-lg text-center"}>
