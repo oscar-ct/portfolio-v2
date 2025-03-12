@@ -96,50 +96,38 @@ const ProjectModal = () => {
             setModalImages(null);
             return;
         }
-        if (focusedProjectId === "gamelister") {
-            setModalImages(gamerListerImages);
-        } else if (focusedProjectId === "gamerhaven") {
-            setModalImages(gamerHavenImages);
-        } else if (focusedProjectId === "pokemon") {
-            setModalImages(pokemonImages);
-        } else if (focusedProjectId === "simplyweather") {
-            setModalImages(simplyWeatherImages);
-        } else if (focusedProjectId === "dreamcars") {
-            setModalImages(dreamCarsImages);
-        } else if (focusedProjectId === "reactfilms") {
-            setModalImages(reactFilmsImages);
-        } else if (focusedProjectId === "susyqcleaning") {
-            setModalImages(susyQImages);
-        } else if (focusedProjectId === "rotatingliner") {
-            setModalImages(rotatingLinerImages);
-        } else {
-            setModalImages([]);
-        }
-        // const imageMap = {
-        //     gamelister: gamerListerImages,
-        //     gamerhaven: gamerHavenImages,
-        //     pokemon: pokemonImages,
-        //     simplyweather: simplyWeatherImages,
-        //     dreamcars: dreamCarsImages,
-        //     reactfilms: reactFilmsImages,
-        //     susyqcleaning: susyQImages,
-        //     rotatingliner: rotatingLinerImages
-        // };
-        // setModalImages(focusedProjectId && focusedProjectId in imageMap ? imageMap[focusedProjectId as keyof typeof imageMap] : []);
+        const imageMap = {
+            gamelister: gamerListerImages,
+            gamerhaven: gamerHavenImages,
+            pokemon: pokemonImages,
+            simplyweather: simplyWeatherImages,
+            dreamcars: dreamCarsImages,
+            reactfilms: reactFilmsImages,
+            susyqcleaning: susyQImages,
+            rotatingliner: rotatingLinerImages
+        };
+        setModalImages(focusedProjectId && focusedProjectId in imageMap ? imageMap[focusedProjectId as keyof typeof imageMap] : []);
 
     }, [focusedProjectId, modalIsOpen]);
 
     useEffect(() => {
         modalRef.current = document.getElementById('my_modal') as HTMLDialogElement | null;
         if (modalRef.current) {
-            const handleDialogChange = () => {
-                setModalIsOpen(modalRef.current!.open);
-            };
-            modalRef.current.addEventListener('toggle', handleDialogChange);
-            return () => {
-                modalRef.current?.removeEventListener('toggle', handleDialogChange);
-            };
+            setModalIsOpen(modalRef.current.open);
+        } else {
+            console.log("Modal not found");
+            setModalIsOpen(false);
         }
+        // modalRef.current = document.getElementById('my_modal') as HTMLDialogElement | null;
+        // if (modalRef.current) {
+        //     const handleDialogChange = () => {
+        //         setModalIsOpen(modalRef.current!.open);
+        //     };
+        //     modalRef.current.addEventListener('toggle', handleDialogChange);
+        //     return () => {
+        //         modalRef.current?.removeEventListener('toggle', handleDialogChange);
+        //     };
+        // }
     }, []);
 
 
