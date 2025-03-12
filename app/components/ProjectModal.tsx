@@ -112,19 +112,26 @@ const ProjectModal = () => {
 
     useEffect(() => {
         modalRef.current = document.getElementById('my_modal') as HTMLDialogElement | null;
-        if (modalRef.current) {
-            setModalIsOpen(modalRef.current.open);
-        } else {
-            console.log("Modal not found");
-            setModalIsOpen(false);
+        const syncModalState = () => {
+            if (modalRef.current) {
+                setModalIsOpen(modalRef.current.open);
+            } else {
+                console.log("Modal not found");
+                setModalIsOpen(false);
+            }
         }
+        syncModalState();
         if (modalRef.current) {
             const handleDialogChange = () => {
-                setModalIsOpen(modalRef.current!.open);
+                syncModalState();
             };
             modalRef.current.addEventListener('toggle', handleDialogChange);
+            modalRef.current.addEventListener('close', handleDialogChange);
+            const interval = setInterval(syncModalState, 500); // Check every 500ms
             return () => {
                 modalRef.current?.removeEventListener('toggle', handleDialogChange);
+                modalRef.current?.removeEventListener('close', handleDialogChange);
+                clearInterval(interval);
             };
         }
     }, []);
