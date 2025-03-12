@@ -118,16 +118,15 @@ const ProjectModal = () => {
             console.log("Modal not found");
             setModalIsOpen(false);
         }
-        // modalRef.current = document.getElementById('my_modal') as HTMLDialogElement | null;
-        // if (modalRef.current) {
-        //     const handleDialogChange = () => {
-        //         setModalIsOpen(modalRef.current!.open);
-        //     };
-        //     modalRef.current.addEventListener('toggle', handleDialogChange);
-        //     return () => {
-        //         modalRef.current?.removeEventListener('toggle', handleDialogChange);
-        //     };
-        // }
+        if (modalRef.current) {
+            const handleDialogChange = () => {
+                setModalIsOpen(modalRef.current!.open);
+            };
+            modalRef.current.addEventListener('toggle', handleDialogChange);
+            return () => {
+                modalRef.current?.removeEventListener('toggle', handleDialogChange);
+            };
+        }
     }, []);
 
 
