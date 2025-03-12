@@ -96,17 +96,36 @@ const ProjectModal = () => {
             setModalImages(null);
             return;
         }
-        const imageMap = {
-            gamelister: gamerListerImages,
-            gamerhaven: gamerHavenImages,
-            pokemon: pokemonImages,
-            simplyweather: simplyWeatherImages,
-            dreamcars: dreamCarsImages,
-            reactfilms: reactFilmsImages,
-            susyqcleaning: susyQImages,
-            rotatingliner: rotatingLinerImages
-        };
-        setModalImages(focusedProjectId && focusedProjectId in imageMap ? imageMap[focusedProjectId as keyof typeof imageMap] : []);
+        if (focusedProjectId === "gamelister") {
+            setModalImages(gamerListerImages);
+        } else if (focusedProjectId === "gamerhaven") {
+            setModalImages(gamerHavenImages);
+        } else if (focusedProjectId === "pokemon") {
+            setModalImages(pokemonImages);
+        } else if (focusedProjectId === "simplyweather") {
+            setModalImages(simplyWeatherImages);
+        } else if (focusedProjectId === "dreamcars") {
+            setModalImages(dreamCarsImages);
+        } else if (focusedProjectId === "reactfilms") {
+            setModalImages(reactFilmsImages);
+        } else if (focusedProjectId === "susyqcleaning") {
+            setModalImages(susyQImages);
+        } else if (focusedProjectId === "rotatingliner") {
+            setModalImages(rotatingLinerImages);
+        } else {
+            setModalImages([]);
+        }
+        // const imageMap = {
+        //     gamelister: gamerListerImages,
+        //     gamerhaven: gamerHavenImages,
+        //     pokemon: pokemonImages,
+        //     simplyweather: simplyWeatherImages,
+        //     dreamcars: dreamCarsImages,
+        //     reactfilms: reactFilmsImages,
+        //     susyqcleaning: susyQImages,
+        //     rotatingliner: rotatingLinerImages
+        // };
+        // setModalImages(focusedProjectId && focusedProjectId in imageMap ? imageMap[focusedProjectId as keyof typeof imageMap] : []);
 
     }, [focusedProjectId, modalIsOpen]);
 
