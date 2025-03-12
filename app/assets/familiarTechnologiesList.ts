@@ -9,7 +9,7 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "SQL Exercises",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/database-exercises",
             },
         ]
     },
@@ -18,11 +18,11 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "Rotating Liner",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/nextra-rotatingliner",
             },
             {
                 name: "Portfolio v2",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/portfolio-v2",
             },
         ]
     },
@@ -31,11 +31,11 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "eshopjs",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/next-eshop",
             },
             {
                 name: "Susy Q Cleaning",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/susyq",
             },
         ]
     },
@@ -44,11 +44,11 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "eshopjs",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/next-eshop",
             },
             {
-                name: "Personal Portfolio",
-                url: "https://react-dream-cars.vercel.app/",
+                name: "Portfolio v2",
+                url: "https://github.com/oscar-ct/portfolio-v2",
             },
         ]
     },
@@ -57,7 +57,7 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "Gamer Haven",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/Cappastone/KAPPA",
             },
         ]
     },
@@ -66,11 +66,11 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "Gamer Haven",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/Cappastone/KAPPA",
             },
             {
                 name: "Game Lister",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/ChadListers/java-adlister/tree/main",
             },
         ]
 
@@ -80,7 +80,7 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "Pokemon-j",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/pok-mon",
             },
         ]
     },
@@ -89,7 +89,7 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "eshopjs",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/next-eshop",
             },
         ]
     },
@@ -98,7 +98,7 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "Game Lister",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/ChadListers/java-adlister/tree/main",
             },
         ]
     },
@@ -107,11 +107,11 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "Gamer Haven",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/Cappastone/KAPPA",
             },
             {
                 name: "Spring Blog",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/spring-blob",
             },
         ]
     },
@@ -120,11 +120,11 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "eshopjs (v1)",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/e-shop",
             },
             {
                 name: "Support Desk",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/support-desk",
             },
         ]
     },
@@ -133,7 +133,7 @@ export const familiarTechnologies : TechSummary[] = [
         projects: [
             {
                 name: "Dream Cars",
-                url: "https://react-dream-cars.vercel.app/",
+                url: "https://github.com/oscar-ct/react-dream-cars",
             },
         ]
 
