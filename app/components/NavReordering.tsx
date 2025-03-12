@@ -29,14 +29,16 @@ export default function NavReordering(): JSX.Element {
     }, [order])
 
     return (
-        <div className={"z-20 fixed pb-4 bottom-0 left-0 right-0 mx-auto w-min lg:top-0 lg:bottom-auto lg:left-auto lg:pr-8 lg:pt-8"}>
+        <div className={"z-20 fixed pb-4 bottom-0 left-0 right-0 mx-auto w-min md:top-0 md:bottom-auto md:left-auto md:pr-8 md:pt-8"}>
             <ul style={container}>
                 {order.map(([backgroundColor, iconName]) => (
                     <motion.li
                         key={backgroundColor}
                         layout
                         transition={spring}
-                        style={{ ...item, backgroundColor }}
+                        style={{ backgroundColor }}
+                        // style={{ ...item, backgroundColor }}
+                        className={"w-14 h-14 flex items-center rounded-xl justify-center md:w-16 md:h-16"}
                     >
                         {
                             iconName === "gmail" ? (
@@ -110,11 +112,11 @@ const container: React.CSSProperties = {
     alignItems: "center",
 }
 
-const item: React.CSSProperties = {
-    width: 75,
-    height: 75,
-    borderRadius: "10px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-}
+// const item: React.CSSProperties = {
+//     width: 75,
+//     height: 75,
+//     borderRadius: "10px",
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+// }

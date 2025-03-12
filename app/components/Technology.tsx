@@ -36,8 +36,8 @@ const Technology = ({ technology, isOpen, setOpenTitle, isDesktop }: TechnologyP
             <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => !isDesktop && setOpenTitle(isOpen ? null : technology)}
-                className={"w-full py-5 text-center relative rounded-xl overflow-hidden group bg-slate-700 hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-500 transition-all ease-out duration-300"}            >
-                <span className={"absolute right-0 w-8 h-32 -mt-12 transition-all duration-500 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"}/>
+                className={`${!isDesktop && isOpen ? "bg-slate-500" : " bg-slate-700"} w-full py-5 text-center relative rounded-xl overflow-hidden group sm:hover:bg-gradient-to-r sm:hover:from-slate-700 sm:hover:to-slate-500 sm:transition-all sm:ease-out sm:duration-300`}            >
+                <span className={"hidden absolute right-0 w-8 h-32 -mt-12 transition-all duration-500 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease sm:inline"}/>
                 <span className="text-white text-sm">{technology}</span>
             </motion.button>
 
@@ -46,7 +46,7 @@ const Technology = ({ technology, isOpen, setOpenTitle, isDesktop }: TechnologyP
                 {(isDesktop ? isHovered : isOpen) && (
                     <motion.div
                         // className={`absolute z-10 w-full max-w-[80vw] md:w-64 p-4 bg-gray-800 text-white rounded-lg shadow-lg mt-2 left-0 md:left-auto md:top-full md:mt-1`}
-                        className={"absolute z-10 w-full p-4 bg-gray-800 rounded-lg shadow-lg mt-2 left-0 md:right-0 md:top-full md:mt-1"}
+                        className={"absolute z-10 w-full p-2.5 bg-gray-800 rounded-lg shadow-lg mt-2 left-0 sm:p-4 md:right-0 md:top-full md:mt-1"}
                         variants={popupVariants}
                         initial="hidden"
                         animate="visible"
@@ -55,11 +55,16 @@ const Technology = ({ technology, isOpen, setOpenTitle, isDesktop }: TechnologyP
                     >
                         <div className={"flex flex-col gap-3"}>
                             {/*<h3 className="text-lg font-semibold">{`${technology} Project's`}</h3>*/}
-                            <p className="text-sm text-slate-400">{technology} Featured Projects</p>
+                            <div className="text-sm text-slate-400">
+                                {technology} Featured Projects
+                            </div>
+                            <div className="flex justify-center text-accent md:justify-start">
+                               <FaGithub size={25}/>
+                            </div>
                             {selectedTechnology.projects && selectedTechnology.projects.length > 0 && (
                                 <>
                                     {selectedTechnology.projects.map((project, index) => (
-                                        <div className={"flex gap-2 items-center text-base link link-accent"}
+                                        <div className={"text-sm flex gap-2 items-center sm:text-base link link-accent"}
                                              key={index}>
                                             <a
                                                 href={project.url}
@@ -68,7 +73,6 @@ const Technology = ({ technology, isOpen, setOpenTitle, isDesktop }: TechnologyP
                                             >
                                                 {project.name}
                                             </a>
-                                            <FaGithub/>
                                         </div>
                                     ))}
                                 </>

@@ -8,7 +8,7 @@ const IntroLink = () => {
         <Link href={"https://eshopjs.com"}>
             <motion.button
                 whileTap={{scale: 0.9}}
-                className={"w-64 relative rounded-xl px-5 py-3 text-base border-2 border-accent overflow-hidden group hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-700 transition-all ease-out duration-300 lg:py-5"}>
+                className={"w-64 relative rounded-xl px-5 py-3 text-base border-2 border-accent overflow-hidden group hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-700 transition-all ease-out duration-300 sm:py-5"}>
                 <span className={"absolute right-0 w-8 h-32 -mt-12 transition-all duration-500 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"}/>
                 <span className={"text-white font-bold"}>Check out my online store!</span>
             </motion.button>
