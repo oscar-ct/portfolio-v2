@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import React from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,7 @@ export const metadata : Metadata = {
     title: 'Oscar Castro | Web Developer',
     description: "Oscar Castro is a skilled web developer crafting exceptional digital experiences using React, Next.js, and modern tools to deliver fast, user-focused solutions.",
     url: 'https://oscar-ct.com',
-    siteName: 'My App',
+    siteName: 'Oscar Castro Portfolio',
     images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'Whales!' }],
     locale: 'en_US',
     type: 'website',
@@ -53,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={"bg-gradient-to-br from-slate-700 via-slate-900 to-slate-900"}>
       <head>
-        <meta name="theme-color" content="#6c2fe5"/>
+        <meta name="theme-color" content="#334155"/>
         <title>{metadata.title as string}</title>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
