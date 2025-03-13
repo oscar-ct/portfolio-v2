@@ -1,4 +1,3 @@
-import IntroLink from "@/app/components/IntroLink";
 import Image from "next/image";
 import headshot from "@/public/images/headshot.jpeg";
 import NavReordering from "@/app/components/NavReordering";
@@ -14,7 +13,7 @@ const Introduction = () => {
                     Web Developer
                 </h2>
                 <h3 className={"text-slate-300"}>
-                    I build pixel-perfect websites with modern tools.
+                    I create pixel-perfect, high-performance websites using modern tools like React and Next.js.
                 </h3>
                 <div className={"mt-4 relative"}>
                     <Image
