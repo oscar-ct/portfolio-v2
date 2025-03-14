@@ -123,7 +123,7 @@ const ProjectModal = () => {
                 return prev;
             });
             if (isOpen && !intervalRef.current) {
-                intervalRef.current = setInterval(syncModalState, 1000);
+                intervalRef.current = setInterval(syncModalState, 500);
             } else if (!isOpen && intervalRef.current) {
                 clearInterval(intervalRef.current);
                 intervalRef.current = null;
