@@ -73,33 +73,33 @@ import rotatingliner1 from '@/public/images/rotatingliner/rotatingliner-1.png';
 import rotatingliner2 from '@/public/images/rotatingliner/rotatingliner-2.png';
 import rotatingliner3 from '@/public/images/rotatingliner/rotatingliner-3.png';
 
-interface DebouncedFunction<T extends (...args: any[]) => void> {
-    (...args: Parameters<T>): void;
-    cancel: () => void;
-}
-
-function debounce<T extends (...args: any[]) => void>(
-    func: T,
-    delay: number
-): DebouncedFunction<T> {
-    let timeoutId: NodeJS.Timeout | null = null;
-    const debounced = (...args: Parameters<T>) => {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-        timeoutId = setTimeout(() => {
-            func(...args);
-            timeoutId = null;
-        }, delay);
-    };
-    debounced.cancel = () => {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-            timeoutId = null;
-        }
-    };
-    return debounced as DebouncedFunction<T>;
-}
+// interface DebouncedFunction<T extends (...args: any[]) => void> {
+//     (...args: Parameters<T>): void;
+//     cancel: () => void;
+// }
+//
+// function debounce<T extends (...args: any[]) => void>(
+//     func: T,
+//     delay: number
+// ): DebouncedFunction<T> {
+//     let timeoutId: NodeJS.Timeout | null = null;
+//     const debounced = (...args: Parameters<T>) => {
+//         if (timeoutId) {
+//             clearTimeout(timeoutId);
+//         }
+//         timeoutId = setTimeout(() => {
+//             func(...args);
+//             timeoutId = null;
+//         }, delay);
+//     };
+//     debounced.cancel = () => {
+//         if (timeoutId) {
+//             clearTimeout(timeoutId);
+//             timeoutId = null;
+//         }
+//     };
+//     return debounced as DebouncedFunction<T>;
+// }
 
 
 const ProjectModal = () => {
@@ -142,20 +142,29 @@ const ProjectModal = () => {
 
     useEffect(() => {
         modalRef.current = document.getElementById('my_modal') as HTMLDialogElement | null;
-        const syncModalState = debounce(() => {
+        // const syncModalState = debounce(() => {
+        //     if (modalRef.current) {
+        //         const isOpen = modalRef.current.open;
+        //         setModalIsOpen(isOpen);
+        //         if (isOpen && modalRef.current) {
+        //             modalRef.current.classList.remove("force-rerender");
+        //             void modalRef.current.offsetWidth;
+        //             modalRef.current.classList.add("force-rerender");
+        //         }
+        //     } else {
+        //         console.log("Modal not found");
+        //         setModalIsOpen(false);
+        //     }
+        // }, 100);
+        const syncModalState = () => {
             if (modalRef.current) {
                 const isOpen = modalRef.current.open;
                 setModalIsOpen(isOpen);
-                if (isOpen && modalRef.current) {
-                    modalRef.current.classList.remove("force-rerender");
-                    void modalRef.current.offsetWidth;
-                    modalRef.current.classList.add("force-rerender");
-                }
             } else {
                 console.log("Modal not found");
                 setModalIsOpen(false);
             }
-        }, 100);
+        };
 
         syncModalState();
 
@@ -165,12 +174,12 @@ const ProjectModal = () => {
             };
             modalRef.current.addEventListener('toggle', handleDialogChange);
             // modalRef.current.addEventListener('close', handleDialogChange);
-            // const interval = setInterval(syncModalState, 500);
+            const interval = setInterval(syncModalState, 500);
             return () => {
                 modalRef.current?.removeEventListener('toggle', handleDialogChange);
                 // modalRef.current?.removeEventListener('close', handleDialogChange);
-                // clearInterval(interval);
-                syncModalState.cancel();
+                clearInterval(interval);
+                // syncModalState.cancel();
             };
         }
     }, []);
