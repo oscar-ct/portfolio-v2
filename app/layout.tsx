@@ -24,7 +24,7 @@ export const metadata : Metadata = {
   },
   alternates: {
     canonical: 'https://oscar-ct.com',
-    languages: { 'en-US': '/en-US' },
+    // languages: { 'en-US': '/en-US' },
   },
   icons: {
     icon: '/favicon.ico',
