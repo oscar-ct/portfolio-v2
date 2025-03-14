@@ -54,11 +54,12 @@ const Project = ({project} : Props) => {
                                     project.github_link && (
                                         <a
                                             href={project.github_link}
-                                            className={"text-white hover:text-purple-500 hover:transition-all hover:duration-300"}
+                                            className={"text-white flex items-center gap-1 hover:text-purple-500 hover:transition-all hover:duration-300"}
                                         >
                                             <FaGithub
                                                 size={20}
                                             />
+                                            <div className={"text-xs font-bold"}>Repo</div>
                                         </a>
                                     )
                                 }
@@ -71,9 +72,9 @@ const Project = ({project} : Props) => {
                             {
                                 project.stack.map((item: String, index: number) => {
                                     return (
-                                        <h5 key={index} className={"p-2 rounded-full bg-purple-500/30 text-purple-300 text-xs font-semibold"}>
+                                        <span key={index} className={"p-2 rounded-full bg-purple-500/30 text-purple-300 text-xs font-semibold"}>
                                             {item}
-                                        </h5>
+                                        </span>
                                     )
                                 })
                             }
