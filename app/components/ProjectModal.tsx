@@ -113,75 +113,58 @@ const ProjectModal = () => {
     }, [focusedProjectId, modalIsOpen]);
 
 
-    const syncModalState = useCallback(() => {
-        if (modalRef.current) {
-            const isOpen = modalRef.current.open;
-            setModalIsOpen((prev) => {
-                if (prev !== isOpen) {
-                    return isOpen;
-                }
-                return prev;
-            });
-            if (isOpen && !intervalRef.current) {
-                intervalRef.current = setInterval(syncModalState, 500);
-            } else if (!isOpen && intervalRef.current) {
-                clearInterval(intervalRef.current);
-                intervalRef.current = null;
-            }
-        } else {
-            console.log("Modal not found");
-            setModalIsOpen(false);
-        }
-    }, []);
-
     useEffect(() => {
-        modalRef.current = document.getElementById("my_modal") as HTMLDialogElement | null;
+        modalRef.current = document.getElementById('my_modal') as HTMLDialogElement | null;
+        // const syncModalState = () => {
+        //     if (modalRef.current) {
+        //         const isOpen = modalRef.current.open;
+        //         setModalIsOpen((prev) => {
+        //             if (prev !== isOpen) {
+        //                 return isOpen;
+        //             }
+        //             return prev;
+        //         });
+        //     } else {
+        //         console.log("Modal not found");
+        //         setModalIsOpen(false);
+        //     }
+        // };
+        const syncModalState = () => {
+            if (modalRef.current) {
+                const isOpen = modalRef.current.open;
+                setModalIsOpen((prev) => {
+                    if (prev !== isOpen) {
+                        // Start/stop interval based on modal state
+                        if (isOpen && !intervalRef.current) {
+                            intervalRef.current = setInterval(syncModalState, 500);
+                        } else if (!isOpen && intervalRef.current) {
+                            clearInterval(intervalRef.current);
+                            intervalRef.current = null;
+                        }
+                        return isOpen;
+                    }
+                    return prev;
+                });
+            } else {
+                console.log("Modal not found");
+                setModalIsOpen(false);
+            }
+        };
+
         syncModalState();
+
         if (modalRef.current) {
-            modalRef.current.addEventListener("toggle", syncModalState);
-            modalRef.current.addEventListener("close", syncModalState);
+            const handleDialogChange = () => {
+                syncModalState();
+            };
+            modalRef.current.addEventListener('toggle', handleDialogChange);
+            const interval = setInterval(syncModalState, 500);
             return () => {
-                modalRef.current?.removeEventListener("toggle", syncModalState);
-                modalRef.current?.removeEventListener("close", syncModalState);
-                if (intervalRef.current) {
-                    clearInterval(intervalRef.current);
-                    intervalRef.current = null;
-                }
+                modalRef.current?.removeEventListener('toggle', handleDialogChange);
+                clearInterval(interval);
             };
         }
-    }, [syncModalState]);
-
-    // useEffect(() => {
-    //     modalRef.current = document.getElementById('my_modal') as HTMLDialogElement | null;
-    //     const syncModalState = () => {
-    //         if (modalRef.current) {
-    //             const isOpen = modalRef.current.open;
-    //             setModalIsOpen((prev) => {
-    //                 if (prev !== isOpen) {
-    //                     return isOpen;
-    //                 }
-    //                 return prev;
-    //             });
-    //         } else {
-    //             console.log("Modal not found");
-    //             setModalIsOpen(false);
-    //         }
-    //     };
-    //
-    //     syncModalState();
-    //
-    //     if (modalRef.current) {
-    //         const handleDialogChange = () => {
-    //             syncModalState();
-    //         };
-    //         modalRef.current.addEventListener('toggle', handleDialogChange);
-    //         const interval = setInterval(syncModalState, 500);
-    //         return () => {
-    //             modalRef.current?.removeEventListener('toggle', handleDialogChange);
-    //             clearInterval(interval);
-    //         };
-    //     }
-    // }, []);
+    }, []);
 
     const handleImageLoad = (index: number) => {
         setLoadedImages((prev) => {
