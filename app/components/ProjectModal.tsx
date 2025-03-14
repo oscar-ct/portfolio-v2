@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image, { StaticImageData } from "next/image";
-import {useCallback, useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 import gamelister1 from '@/public/images/game-lister/game-lister-1.jpg';
 import gamelister2 from '@/public/images/game-lister/game-lister-2.jpg';
@@ -206,7 +206,7 @@ const ProjectModal = () => {
                                                 quality={75}
                                                 loading="lazy"
                                                 placeholder="blur"
-                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                                sizes="(max-width: 640px) 100vw, (max-width: 1396px) 90vw, 64vw"
                                                 onLoad={() => handleImageLoad(index)}
                                                 className={`transition-opacity duration-300 ${loadedImages.has(index) ? "opacity-100" : "opacity-0"}`}
                                             />
