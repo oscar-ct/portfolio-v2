@@ -90,10 +90,13 @@ const ProjectModal = () => {
     const [modalImages, setModalImages] = useState<StaticImageData[] | null> ([]);
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
     const modalRef = useRef<HTMLDialogElement | null>(null);
+    const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+
 
     useEffect(() => {
         if (!modalIsOpen) {
             setModalImages(null);
+            setLoadedImages(new Set());
             return;
         }
         const imageMap = {
@@ -127,15 +130,22 @@ const ProjectModal = () => {
             };
             modalRef.current.addEventListener('toggle', handleDialogChange);
             modalRef.current.addEventListener('close', handleDialogChange);
-            const interval = setInterval(syncModalState, 500); // Check every 500ms
+            // const interval = setInterval(syncModalState, 500); // Check every 500ms
             return () => {
                 modalRef.current?.removeEventListener('toggle', handleDialogChange);
                 modalRef.current?.removeEventListener('close', handleDialogChange);
-                clearInterval(interval);
+                // clearInterval(interval);
             };
         }
     }, []);
 
+    const handleImageLoad = (index: number) => {
+        setLoadedImages((prev) => {
+            const newSet = new Set(prev);
+            newSet.add(index);
+            return newSet;
+        });
+    };
 
     return (
         <dialog id="my_modal" className="modal modal-middle backdrop-blur">
@@ -154,16 +164,28 @@ const ProjectModal = () => {
                         >
                             {modalImages.map(function (image, index) {
                                 return (
-                                    <SwiperSlide
-                                        key={index}
-                                    >
-                                        <Image
-                                            src={image}
-                                            alt={"screenshot"}
-                                            width={1280}
-                                            height={720}
-                                        />
-                                    </SwiperSlide>)
+                                    <SwiperSlide key={index}>
+                                        <div className="relative w-full h-full">
+                                            {!loadedImages.has(index) && (
+                                                <div className="absolute inset-0 flex justify-center items-center">
+                                                    <span className="loading loading-spinner loading-lg text-white"></span>
+                                                </div>
+                                            )}
+                                            <Image
+                                                src={image}
+                                                alt="screenshot"
+                                                width={1280}
+                                                height={720}
+                                                quality={75}
+                                                loading="lazy"
+                                                placeholder="blur"
+                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                                onLoad={() => handleImageLoad(index)}
+                                                className={`transition-opacity duration-300 ${loadedImages.has(index) ? "opacity-100" : "opacity-0"}`}
+                                            />
+                                        </div>
+                                    </SwiperSlide>
+                                )
                             })}
                         </Swiper>
                     )
