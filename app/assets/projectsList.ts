@@ -22,18 +22,18 @@ export interface ProjectType {
 export const projects: ProjectType[] = [
     {
         id: "eshopjs",
-        title: 'My Online Shop',
+        title: 'Shop Oscar',
         github_link: "https://github.com/oscar-ct/next-eshop",
-        demo_link: "https://eshopjs.com/",
+        demo_link: "https://shoposcar.com",
         image: eshopjs,
         stack: ["Next.js", "Prisma", "PostgreSQL", "JavaScript", "React", "TailwindCSS"],
-        description: "eshopjs.com is my personal website, built using Next.js to showcase my programming skills through a robust e-commerce platform. It features a curated selection of my favorite picks, with live payments seamlessly integrated via Stripe and PayPal APIs. Fully mobile optimized, the site offers an easy-to-use checkout process and allows users to create accounts to view, manage, and track their orders, with security and authentication handled by NextAuth. It also includes an intuitive admin dashboard for overseeing orders, users, and product listings.",
+        description: "ShopOscar is my personal online shop, built using Next.js to showcase my programming skills through a robust e-commerce platform. It features a curated selection of my favorite picks, with live payments seamlessly integrated via Stripe and PayPal APIs. Fully mobile optimized, the site offers an easy-to-use checkout process and allows users to create accounts to view, manage, and track their orders, with security and authentication handled by NextAuth. It also includes an intuitive admin dashboard for overseeing orders, users, and product listings.",
     },
     {
         id: "susyqcleaning",
         title: 'Susy Q Cleaning',
         github_link: "https://github.com/oscar-ct/susyq",
-        demo_link: "https://react-dream-cars.vercel.app/",
+        demo_link: "https://susyqcleaning.com/",
         image: susyq,
         stack: ["Next.js", "JavaScript", "React", "TailwindCSS"],
         description: "The soon to be official site for susyqcleaning.com, a website I built using Next.js to optimize search engine visibility and enhance user experience. The project aimed to seamlessly integrate with the customer’s CRM while retaining SEO performance. Styling was subtly refined from the existing site, maintaining familiarity with a modern touch."
