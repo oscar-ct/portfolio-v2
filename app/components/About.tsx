@@ -11,9 +11,7 @@ const About = () => {
                     Java, building user-focused, accessible web solutions that perform and inspire.
                 </p>
                 <p className={"leading-7 text-slate-300"}>
-                    I launched my career as a Web Developer in 2022 after transitioning from the Oil & Gas
-                    industry, where I worked for over six years as a Procurement Specialist before being laid off.
-                    My passion for technology dates back to the MySpace era, when I first explored HTML and CSS.
+                    I began my career as a Web Developer in 2022 after pivoting from a six-year tenure in the Oil & Gas industry as a Procurement Specialist, where I was part of a company-wide layoff mandated by the WARN Act. My passion for technology sparked during the MySpace era, when I first dove into HTML and CSS.
                 </p>
                 <p className={"leading-7 text-slate-300"}>
                     In 2022, I dedicated myself to mastering programming by enrolling in Codeup, an accredited,
