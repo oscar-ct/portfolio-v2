@@ -24,7 +24,7 @@ const Introduction = () => {
                         src={headshot}
                         alt={"headshot"}
                     />
-                    <div className={"absolute top-0 mask mask-squircle w-52 h-52 bg-purple-500 opacity-20 hover:opacity-0 hover:transition-all hover:duration-500 hover:transform"}/>
+                    <div className={"absolute top-0 mask mask-squircle w-52 h-52 bg-purple-500 opacity-20"}/>
                 </div>
             </div>
             {/*<IntroLink/>*/}
