@@ -23,7 +23,7 @@ const WhatIKnow = () => {
     return (
         <section id={"what-i-know"} className={"flex flex-col gap-10"}>
             <h1 className={"uppercase text-lg font-bold text-slate-400"}>
-                Experience
+                Skills
             </h1>
             <div className={"flex flex-col gap-6"}>
                 <h2 className={"text-center text-purple-300"}>

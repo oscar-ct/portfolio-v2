@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { ProjectType } from "@/app/assets/projectsList";
 import {FaGithub} from "react-icons/fa";
-import {MdArrowOutward} from "react-icons/md";
 import ModalLink from "@/app/components/ModalLink";
+import { RiExternalLinkFill } from "react-icons/ri";
 
 interface Props {
     project: ProjectType;
@@ -24,8 +24,8 @@ const Project = ({project} : Props) => {
                             />
                             <div className={"absolute max-w-72 md:w-full h-full top-0 rounded bg-purple-500 opacity-20 hover:opacity-0 hover:transition-all hover:duration-500 hover:transform"}/>
                         </div>
-                        <div className={"mt-3 font-semibold cursor-pointer text-slate-200 hover:text-purple-500 hover:transition-all hover:duration-300"}>
-                            Image Gallery
+                        <div className={"underline mt-3 font-semibold cursor-pointer text-slate-200 hover:text-purple-500 hover:transition-all hover:duration-300"}>
+                            Full Image Gallery
                         </div>
                     </ModalLink>
                 </div>
@@ -42,7 +42,9 @@ const Project = ({project} : Props) => {
                                             <div className={"text-xl font-semibold"}>
                                                 {project.title}
                                             </div>
-                                            <MdArrowOutward size={20}/>
+                                            {/*<MdArrowOutward size={20}/>*/}
+                                            <RiExternalLinkFill size={24}/>
+
                                         </a>
                                     ) : (
                                         <div className={"text-xl text-white font-semibold"}>
