@@ -20,12 +20,16 @@ export const metadata : Metadata = {
   keywords: 'Oscar Castro, web developer, software developer, Java, JavaScript, TypeScript, Next.js, SQL, portfolio',
   robots: 'index, follow',
   verification: {
-    google: 'w50CPtYeAGmmGRb2ghoI3uJzWAnOvZFGZOTo4VHXLWk',
+    google: 'NLaX5BTSia0XWsKgj8t_3GaPSPcHjS',
   },
   alternates: {
     canonical: 'https://oscar-ct.com',
     // languages: { 'en-US': '/en-US' },
   },
+  applicationName: 'ShopOscar',
+  authors: [{ name: 'Oscar Castro' }, { name: 'Oscar Castro', url: 'https://oscarct.com' }],
+  creator: 'Oscar Castro',
+  publisher: 'Oscar Castro',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
